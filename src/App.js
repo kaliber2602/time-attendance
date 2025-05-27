@@ -4,6 +4,8 @@ import RoleSelection from "./components/RoleSelection";
 import LoginPage from "./components/LoginPage";
 import DashboardEmployee from "./components/DashboardEmployee";
 import DashboardManager from "./components/DashboardManager";
+import DashboardAdmin from "./components/DashboardAdmin"; // Import DashboardAdmin
+import ManageAccount from "./components/ManageAccount"; // Import ManageAccount
 import DashboardHR from "./components/DashboardHR";
 import ClockInOut from "./components/ClockInOut";
 import Timesheet from "./components/Timesheet";
@@ -117,6 +119,18 @@ export default function App() {
             <Route path="*" element={<Navigate to="/dashboard" />} />
           </>
         )}
+
+        {/* Chỉ cho Administrator */}
+        {user && user.role === "Administrator" && (
+          <>
+            <Route path="/dashboard" element={<DashboardAdmin user={user} />} />
+            <Route path="/ManageAccount" element={<ManageAccount />} />
+            <Route path="/ManageEmployees" element={<ManageEmployees />} />
+            <Route path="/RequestList" element={<RequestList requests={requests} />} />
+            <Route path="*" element={<Navigate to="/dashboard" />} />
+          </>
+        )}
+
         {/* Nếu chưa đăng nhập */}
         {!user && <Route path="*" element={<Navigate to="/" />} />}
       </Routes>
