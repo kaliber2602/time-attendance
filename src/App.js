@@ -4,6 +4,7 @@ import RoleSelection from "./components/RoleSelection";
 import LoginPage from "./components/LoginPage";
 import DashboardEmployee from "./components/DashboardEmployee";
 import DashboardManager from "./components/DashboardManager";
+import DashboardHR from "./components/DashboardHR";
 import ClockInOut from "./components/ClockInOut";
 import Timesheet from "./components/Timesheet";
 import SubmitRequest from "./components/SubmitRequest";
@@ -12,7 +13,12 @@ import ManageTasks from "./components/ManageTasks";
 import HandleRequests from "./components/HandleRequests";
 import SummaryView from "./components/SummaryView";
 import ManageEmployees from "./components/ManageEmployees";
-import { employee as mockEmployee, shifts, requestTypes } from "./data/employee"; // Mock data
+import SetSchedule from "./components/SetSchedule";
+import {
+  employee as mockEmployee,
+  shifts,
+  requestTypes,
+} from "./data/employee"; // Mock data
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 export default function App() {
@@ -48,7 +54,10 @@ export default function App() {
         {/* Chỉ cho Employee */}
         {user && user.role === "Employee" && (
           <>
-            <Route path="/dashboard" element={<DashboardEmployee user={user} />} />
+            <Route
+              path="/dashboard"
+              element={<DashboardEmployee user={user} />}
+            />
             <Route
               path="/ClockInOut"
               element={
@@ -62,11 +71,7 @@ export default function App() {
             />
             <Route
               path="/Timesheet"
-              element={
-                <Timesheet
-                  timesheet={timesheet}
-                />
-              }
+              element={<Timesheet timesheet={timesheet} />}
             />
             <Route
               path="/SubmitRequest"
@@ -80,11 +85,7 @@ export default function App() {
             />
             <Route
               path="/RequestList"
-              element={
-                <RequestList
-                  requests={requests}
-                />
-              }
+              element={<RequestList requests={requests} />}
             />
             <Route path="*" element={<Navigate to="/dashboard" />} />
           </>
@@ -92,9 +93,25 @@ export default function App() {
         {/* Chỉ cho Department Manager */}
         {user && user.role === "Department Manager" && (
           <>
-            <Route path="/dashboard" element={<DashboardManager user={user} />} />
+            <Route
+              path="/dashboard"
+              element={<DashboardManager user={user} />}
+            />
             <Route path="/tasks" element={<ManageTasks />} />
             <Route path="/requests" element={<HandleRequests />} />
+            <Route path="/summary" element={<SummaryView />} />
+            <Route path="/employees" element={<ManageEmployees />} />
+            <Route path="*" element={<Navigate to="/dashboard" />} />
+          </>
+        )}
+        {/* Chỉ cho HR */}
+        {user && user.role === "HR" && (
+          <>
+            <Route 
+              path="/dashboard" 
+              element={<DashboardHR user={user} />} 
+            />
+            <Route path="/schedule" element={<SetSchedule />} />
             <Route path="/summary" element={<SummaryView />} />
             <Route path="/employees" element={<ManageEmployees />} />
             <Route path="*" element={<Navigate to="/dashboard" />} />

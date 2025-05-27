@@ -5,8 +5,8 @@ export default function RoleSelection({ onSelect }) {
   const [selected, setSelected] = useState(null);
 
   return (
-    <div className="container d-flex flex-column align-items-center justify-content-center min-vh-100 bg-light">
-      <h2 className="mb-5 fw-bold">Chọn vai trò</h2>
+    <div className="container d-flex flex-column align-items-center justify-content-center min-vh-100 bg-light border rounded ">
+      <h2 className="mb-5 fw-bold h1 ">Chọn vai trò</h2>
       <div className="row g-4">
         {roles.map((role, idx) => (
           <div className="col-12 col-md-6 col-lg-3" key={role.key}>

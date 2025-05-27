@@ -17,3 +17,30 @@ export const summary = [
   { name: "John Doe", daysWorked: 20, lateDays: 2, absentDays: 1, overtimeHours: 10 },
   { name: "Jane Smith", daysWorked: 18, lateDays: 1, absentDays: 2, overtimeHours: 8 },
 ];
+
+export const setSchedule = [
+  {
+    name: "Jane Doe",
+    employeeId: "EMP001",
+    department: "Sales",
+    schedule: [
+      { day: "Monday", shift: "Morning", time: "08:00 - 12:00" },
+      { day: "Tuesday", shift: "Afternoon", time: "13:00 - 17:00" },
+      { day: "Wednesday", shift: "Off" },
+      { day: "Thursday", shift: "Morning", time: "08:00 - 12:00" },
+      { day: "Friday", shift: "Full Day", time: "08:00 - 17:00" },
+    ]
+  },
+  {
+    name: "John Smith",
+    employeeId: "EMP002",
+    department: "Engineering",
+    schedule: [
+      { day: "Monday", shift: "Full Day", time: "09:00 - 18:00" },
+      { day: "Tuesday", shift: "Full Day", time: "09:00 - 18:00" },
+      { day: "Wednesday", shift: "Morning", time: "09:00 - 12:00" },
+      { day: "Thursday", shift: "Off" },
+      { day: "Friday", shift: "Afternoon", time: "13:00 - 18:00" },
+    ]
+  }
+];
