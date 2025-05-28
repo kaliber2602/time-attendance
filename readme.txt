@@ -12,7 +12,7 @@ npm install
 5. To run the code:
 npm start
 
-Project will be automatically open at http://localhost:3001
+Project will be automatically open at http://localhost:3000
 
  I. Accounts for testing:
 Employee: 
